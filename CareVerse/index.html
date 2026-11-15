@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en" data-theme="light" data-size="md">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#6552c7">
+  <meta name="description"
+    content="One platform. Three generations. Complete care coordination for elders, families and caregivers.">
+  <title>CareVerse — SilverGuard AI Elderly Care Platform</title>
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="loggedout">
+  <a class="skip" href="#view">Skip to main content</a>
+  <div id="app"></div>
+
+  <button id="fab" class="fab" data-act="assistant" aria-label="Open AI care assistant">
+    <svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M4 5h16v11H9l-5 4z" />
+    </svg>
+    <b>Ask CareVerse</b>
+  </button>
+  <aside id="assistant" class="assistant" aria-label="AI care assistant" hidden>
+    <header>
+      <div><strong>CareVerse Assistant</strong><small id="ai-mode">Local mode · works offline</small></div><button
+        class="icon-btn" data-act="assistant" aria-label="Close assistant">✕</button>
+    </header>
+    <div class="ai-tools">
+      <label class="sr-only" for="ai-lang">AI talking language</label>
+      <select id="ai-lang" aria-label="AI talking language"></select>
+      <button class="icon-btn" id="btn-voice" data-act="voiceToggle" aria-pressed="false" title="Speak replies aloud"
+        aria-label="Toggle spoken replies">🔇</button>
+      <button class="icon-btn" id="btn-convo" data-act="convo" aria-pressed="false" title="Hands-free conversation"
+        aria-label="Hands-free conversation">🗣</button>
+      <button class="icon-btn" id="btn-stop" data-act="stopTalk" title="Stop talking" aria-label="Stop talking"
+        hidden>⏹</button>
+    </div>
+    <div id="chat" class="chat" role="log" aria-live="polite"></div>
+    <div id="chips" class="chips"></div>
+    <form id="chat-form" class="chat-form" autocomplete="off">
+      <button type="button" id="mic" class="icon-btn mic" data-act="mic" aria-label="Speak your question">🎤</button>
+      <input id="chat-input" type="text" placeholder="Ask about medicines, appointments…"
+        aria-label="Type your question">
+      <button class="btn primary" type="submit">Send</button>
+    </form>
+    <p class="disclaimer">CareVerse records and reminds. It does not provide medical advice or dosage recommendations.
+    </p>
+  </aside>
+  <div id="toasts" class="toasts" aria-live="polite" role="status"></div>
+  <dialog id="modal"></dialog>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js" defer></script>
+  <script src="config.js"></script>
+  <script src="voice.js" defer></script>
+  <script src="analytics.js" defer></script>
+  <script src="features.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+
+</html>
